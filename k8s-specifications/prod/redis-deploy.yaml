@@ -19,7 +19,7 @@ spec:
         version: latest
     spec:
       containers:
-      - image: schoolofdevops/redis:latest
+      - image: rohammosalli/redis:latest
         imagePullPolicy: Always
         name: redis
         ports:
