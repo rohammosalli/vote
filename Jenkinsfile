@@ -2,18 +2,18 @@ node {
     def resultImage
     def voteImage
     def workerImage
-    docker.withRegistry("https://index.docker.io/v1/", "myapp" ) { 
+    docker.withRegistry("https://index.docker.io/v1/", "your docker account" ) { 
       stage('Clone repo') {
         checkout scm
       }
       stage('Build result') {
-        resultImage = docker.build("myapp/result", "./result")
+        resultImage = docker.build("your docker account/result", "./result")
       } 
       stage('Build vote') {
-        voteImage = docker.build("myapp/vote", "./vote")
+        voteImage = docker.build("your docker account/vote", "./vote")
       }
       stage('Build worker dotnet') {
-        workerImage = docker.build("myapp/worker", "./worker")
+        workerImage = docker.build("your docker account/worker", "./worker")
       }
       stage('Push result image') {
           resultImage.push("${env.BUILD_NUMBER}")
